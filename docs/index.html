@@ -1,6 +1,71 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LIFF Starter</title>
+        <link rel="stylesheet" href="style.css">
+        <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    </head>
+  
+<script>
+
+
+
+
+/**
+* Initialize LIFF
+* @param {string} myLiffId The LIFF app ID of the selected element
+*/
+function initializeLiff(myLiffId) {
+
+  if (liff.isLoggedIn() == false) {
+ 
+    liff.init({
+            liffId: myLiffId
+        })
+        .then(() => {
+
+          if (liff.isLoggedIn() == false) {
+            liff.login();
+            console.log("LOGIN");
+          }
+        })
+        .catch((err) => {
+            document.getElementById("liffAppContent").classList.add('hidden');
+            document.getElementById("liffInitErrorMessage").classList.remove('hidden');
+        });
+  }
+}
+
+function liffInit() {
+  initializeLiff('1634329436-nW9OzZE7');
+}
+
+function liffLogined() {
+    liff.init();
+
+    if (liff.isLoggedIn()) {
+        console.log("LOGIN SUCCESS");
+    } else {
+      console.log("LOGIN ERROR");
+    }
+}
+</script>
+
  <body>
    HELLO
- </body>
+<hr>
+
+   
+<input type="button" value="liff.init()" onclick="liffInit();" style="width:200px; height:100px;">
+<br><br>
+
+
+<input type="button" value="liff.login()" onclick="liffLogined()" style="width:200px; height:100px;">
+
+ 
+ 
+ 
+  </body>
 </html>
 
