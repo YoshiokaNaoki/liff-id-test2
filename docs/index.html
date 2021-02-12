@@ -137,7 +137,7 @@ function VerifyGet() {
                 '<li> displayName:' + accessIdRes.displayName + '</li>' +
                 '<li> pictureUrl:' + accessIdRes.pictureUrl + '</li>' +
                 '<li> statusMessage:' + accessIdRes.statusMessage + '</li>';
-                
+
             } )
             .fail( ( accessIdRes ) => {
               console.log(accessIdRes);
@@ -158,7 +158,7 @@ function VerifyGet() {
     <input type="button" value="liff.init()" onclick="liffInit()" class="buttonCss">
     <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
     <input type="button" value="liff.getIDToken()" onclick="IDToken()" class="buttonCss">
-    <input type="button" value="Verify()" onclick="VerifyGtt()" class="buttonCss">
+    <input type="button" value="Verify()" onclick="VerifyPost()" class="buttonCss">
     <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
 
     <h2>出力内容</h2>
@@ -173,7 +173,7 @@ function VerifyGet() {
     <h1>アクセストークンからユーザーID取得調査</h1>
 
     <input type="button" value="liff.getAccessToken()" onclick="AccessToken()" class="buttonCss">
-    <input type="button" value="VerifyGet()" onclick="VerifyGet()" class="buttonCss">
+    <input type="button" value="Verify() & getProgile()" onclick="VerifyGet()" class="buttonCss">
     
 
     <h2>出力内容</h2>
