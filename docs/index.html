@@ -131,7 +131,13 @@ function VerifyGet() {
             } )
             .done( ( accessIdRes ) => {
               console.log(accessIdRes);
-              divElm.innerHTML = accessIdRes
+
+              divElm.innerHTML = 
+                '<li> userId:' + accessIdRes.userId + '</li>' +
+                '<li> displayName:' + accessIdRes.displayName + '</li>' +
+                '<li> pictureUrl:' + accessIdRes.pictureUrl + '</li>' +
+                '<li> statusMessage:' + accessIdRes.statusMessage + '</li>';
+                
             } )
             .fail( ( accessIdRes ) => {
               console.log(accessIdRes);
