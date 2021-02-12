@@ -73,7 +73,7 @@ function Logout() {
   window.location.reload();
 }
 
-function Velify() {
+function Verify() {
     var senddata = 'id_token=' + idToken + '&client_id=' + myLiffId;
     $.post( 'https://api.line.me/oauth2/v2.1/verify', senddata )
     .done(function( data ) {
