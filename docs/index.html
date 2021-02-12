@@ -77,15 +77,17 @@ function Logout() {
 function Verify() {
     var divElm = document.getElementById("console");
     var postData = 'id_token=' + idToken + '&client_id=' + channelId;
-    // var postData = {'id_token': idToken, 'client_id': channelId};
     console.log( postData );
 
 
-    $.post( 'https://api.line.me/oauth2/v2.1/verify', 'id_token=eyJraWQiOiJhNzk2OGMyZWExNWYwZjQxNjM1ZGU1ZTA4ODI5MDQ5MWIwMjMxYTU2YTQ5Y2M4YTZjZDZlZDQ0MTcyN2EyNTJmIiwidHlwIjoiSldUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2FjY2Vzcy5saW5lLm1lIiwic3ViIjoiVTE5NzBjNjYzYjBmOTZhYWMyZjExY2FiYjFiOTFkZmQ2IiwiYXVkIjoiMTYzNDMyOTQzNiIsImV4cCI6MTYxMzExODcyMywiaWF0IjoxNjEzMTE1MTIzLCJhbXIiOlsibGluZXNzbyJdLCJuYW1lIjoiWW9zaGlvX0siLCJwaWN0dXJlIjoiaHR0cHM6Ly9wcm9maWxlLmxpbmUtc2Nkbi5uZXQvMGhpenRSMDdTUU5sVkpLeGlPUlNSSkFuVnVPRGctQlRBZE1VUXNNejU3Ympac0dIWlVjVXg3TVdsLU8yQnRUaUVIZEUxLU4yNS1PekJtIn0.xXRu80UlavBwDGXD-W295W8_NUBc5nRPkkKiETFpyXIUOYauphBW_QI-7BiZNpBNC7KzCT35y3Vffc2XMFQ98Q&client_id=1634329436' )
-    .done(function( data ) {
-      console.log( data );
-      divElm.innerHTML = data;
-    })
+    $.post( 'https://api.line.me/oauth2/v2.1/verify', postData )
+      .done(function(data, textStatus, jqXHR){
+        console.log(textStatus);
+        divElm.innerHTML = data;
+      }).fail(function(jqXHR, textStatus, errorThrown){
+        console.log(textStatus);
+        divElm.innerHTML = "エラーが発生しました。ステータス：" + jqXHR.status;
+      });
 }
 
 </script>
