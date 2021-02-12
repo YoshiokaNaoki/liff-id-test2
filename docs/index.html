@@ -5,17 +5,14 @@
         <title>LIFF Starter</title>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     </head>
-  
-<script>
+    <body>
 
+<script>
 
 var myLiffId = '1634329436-nW9OzZE7';
 
-/**
-* Initialize LIFF
-*/
 function initializeLiff() {
-
+    console.log("initializeLiff:" + myLiffId);
     liff.init({
             liffId: myLiffId
         })
