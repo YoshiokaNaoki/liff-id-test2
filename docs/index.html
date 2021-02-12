@@ -12,15 +12,15 @@
 var myLiffId = '1634329436-nW9OzZE7';
 
 function initializeLiff() {
-    console.log("initializeLiff:" + myLiffId);
-    liff.init({
+  var divElm = document.getElementById("console");
+  liff.init({
             liffId: myLiffId
         })
         .then(() => {
-
           if (liff.isLoggedIn() == false) {
             liff.login();
-            console.log("LOGIN");
+          } else {
+            divElm.innerHTML = "LOGINED"            
           }
         })
         .catch((err) => {
@@ -34,14 +34,15 @@ function liffInit() {
 }
 
 function liffLogined() {
+    var divElm = document.getElementById("console");
     liff.init({
             liffId: myLiffId
         })
         .then(() => {
           if (liff.isLoggedIn()) {
-            console.log("LOGIN SUCCESS");
+            divElm.innerHTML = "LOGIN SUCCESS";
           } else {
-            console.log("LOGIN ERROR");
+            divElm.innerHTML = "LOGIN ERROR";
           }
         })
         .catch((err) => {
@@ -56,6 +57,8 @@ function IDToken() {
   const idToken = liff.getIDToken();
   console.log("tokenID=" + idToken);
 
+  var divElm = document.getElementById("console");
+  divElm.innerHTML = idToken;
 }
 
 function Logout() {
@@ -81,6 +84,11 @@ function Logout() {
  
 <br><br> 
 <input type="button" value="liff.Logout()" onclick="Logout()" style="width:200px; height:100px;">
+
+<hr>
+<div id="console" style="width:500px; height:200px; background-color: gray;">
+</div>
+
 
 
   </body>
