@@ -4,7 +4,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LIFF Starter</title>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-    </head>
+
+<style>
+
+button.buttonCss {
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-appearance: none; 
+    width:200px; 
+    height:50px;
+}
+
+</style>
+
+      </head>
     <body>
 
 <script>
@@ -69,24 +82,26 @@ function Logout() {
 </script>
 
  <body>
-   HELLO
+  
+<h1>ID TokenからユーザーID取得調査</h1>
 <hr>
 
    
-<input type="button" value="liff.init()" onclick="liffInit();" style="width:200px; height:100px;">
+<input type="button" value="liff.init()" onclick="liffInit();" class="buttonCss">
 <br><br>
 
 
-<input type="button" value="liff.login()" onclick="liffLogined()" style="width:200px; height:100px;">
+<input type="button" value="liff.login()" onclick="liffLogined()" class="buttonCss">
 
 <br><br> 
-<input type="button" value="liff.getIDToken()" onclick="IDToken()" style="width:200px; height:100px;">
+<input type="button" value="liff.getIDToken()" onclick="IDToken()" class="buttonCss">
  
 <br><br> 
-<input type="button" value="liff.Logout()" onclick="Logout()" style="width:200px; height:100px;">
+<input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
 
 <hr>
-<div id="console" style="width:500px; height:200px; background-color: gray;">
+<h2>出力内容</h2>
+<div id="console" style="width:500px; height:200px; background-color:lightgray; white-space: normal; border:2px solid #aaa;">
 </div>
 
 
