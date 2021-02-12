@@ -78,6 +78,8 @@ function Verify() {
     var divElm = document.getElementById("console");
     var postData = 'id_token=' + idToken + '&client_id=' + channelId;
     // var postData = {'id_token': idToken, 'client_id': channelId};
+    console.log( postData );
+
 
     $.post( 'https://api.line.me/oauth2/v2.1/verify', postData )
     .done(function( data ) {
