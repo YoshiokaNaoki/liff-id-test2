@@ -83,11 +83,9 @@ function Verify() {
       .done(function(data, textStatus, jqXHR){
         console.log(textStatus);
         divElm.innerHTML = 
-          {
-            uid : data.sub,
-            name : data.name,
-            picture : data.picture
-          };
+          '<li> sub:' + data.sub + '</li>' +
+          '<li> name:' + data.name + '</li>' +
+          '<li> picture:' + data.picture + '</li>';
         
         data;
       }).fail(function(jqXHR, textStatus, errorThrown){
