@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>LIFF Starter</title>
+        <title>ID TokenからユーザーID取得調査</title>
         <script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
         <style>
 
@@ -23,8 +24,9 @@
 <script>
 
 var myLiffId = '1634329436-nW9OzZE7';
+var idToken = '';
 
-function initializeLiff() {
+function liffInit() {
   var divElm = document.getElementById("console");
   liff.init({
             liffId: myLiffId
@@ -41,11 +43,7 @@ function initializeLiff() {
         });
 }
 
-function liffInit() {
-  initializeLiff();
-}
-
-function liffLogined() {
+function liffReLogin() {
     var divElm = document.getElementById("console");
     liff.init({
             liffId: myLiffId
@@ -65,9 +63,7 @@ function liffLogined() {
 
 
 function IDToken() {
-  const idToken = liff.getIDToken();
-  console.log("tokenID=" + idToken);
-
+  idToken = liff.getIDToken();
   var divElm = document.getElementById("console");
   divElm.innerHTML = idToken;
 }
@@ -76,6 +72,26 @@ function Logout() {
   liff.logout();
   window.location.reload();
 }
+
+$(function () {
+  $('input#getUID').click(function () {
+    var senddata = 'id_token=' + idToken + '&client_id=' + myLiffId;
+    $.post( 'https://api.line.me/oauth2/v2.1/verify', senddata )
+    .done(function( data ) {
+      console.log( data.form );
+      divElm.innerHTML = data.form;
+    })
+
+  //   var formData = $('#getUID').serialize();
+
+  //   console.log(formData);
+  //     $.ajax({
+  //         url: "https://api.line.me/oauth2/v2.1/verify",
+  //         type: "POST",
+  //         data:""
+  //     });
+  // });
+});
 
 </script>
 
@@ -87,11 +103,16 @@ function Logout() {
       
     <input type="button" value="liff.init()" onclick="liffInit();" class="buttonCss">
 
-    <input type="button" value="liff.login()" onclick="liffLogined()" class="buttonCss">
+    <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
 
     <input type="button" value="liff.getIDToken()" onclick="IDToken()" class="buttonCss">
     
     <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
+
+    <form id="getUID" action="javascript:void(0);">
+      <input type="submit" value="Verify" class="buttonCss"/>
+    </form>
+
 
     <h2>出力内容</h2>
       
