@@ -58,6 +58,11 @@ function IDToken() {
 
 }
 
+function Logout() {
+  liff.logout();
+  window.location.reload();
+}
+
 </script>
 
  <body>
@@ -74,7 +79,10 @@ function IDToken() {
 <br><br> 
 <input type="button" value="liff.getIDToken()" onclick="IDToken()" style="width:200px; height:100px;">
  
- 
+<br><br> 
+<input type="button" value="liff.Logout()" onclick="Logout()" style="width:200px; height:100px;">
+
+
   </body>
 </html>
 
