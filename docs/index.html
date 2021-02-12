@@ -73,14 +73,14 @@ function Logout() {
   window.location.reload();
 }
 
-$(function () {
-  $('input#getUID').click(function () {
+function Velify() {
     var senddata = 'id_token=' + idToken + '&client_id=' + myLiffId;
     $.post( 'https://api.line.me/oauth2/v2.1/verify', senddata )
     .done(function( data ) {
       console.log( data.form );
       divElm.innerHTML = data.form;
     })
+
 
   //   var formData = $('#getUID').serialize();
 
@@ -91,7 +91,7 @@ $(function () {
   //         data:""
   //     });
   // });
-});
+}
 
 </script>
 
@@ -101,7 +101,7 @@ $(function () {
     <hr>
 
       
-    <input type="button" value="liff.init()" onclick="liffInit();" class="buttonCss">
+    <input type="button" value="liff.init()" onclick="liffInit()" class="buttonCss">
 
     <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
 
@@ -109,10 +109,7 @@ $(function () {
     
     <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
 
-    <form id="getUID" action="javascript:void(0);">
-      <input type="submit" value="Verify" class="buttonCss"/>
-    </form>
-
+    <input type="button" value="Verify()" onclick="Verify()" class="buttonCss">
 
     <h2>出力内容</h2>
       
