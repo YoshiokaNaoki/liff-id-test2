@@ -113,11 +113,13 @@ function AccessToken() {
 
 function VerifyGet() {
     var divElm = document.getElementById("console2");
-    var getData = {'id_token' : accessToken};
+    var getData = {'access_token' : accessToken};
     console.log( getData );
 
     $.get( 'https://api.line.me/oauth2/v2.1/verify', getData )
       .done(function(data, textStatus, jqXHR){
+          console.log('client_id=' + data.client_id);
+          console.log('expires_in=' + data.expires_in);
 
           if (data.client_id == channelId && expires_in > 0) {
 
@@ -164,12 +166,8 @@ function VerifyGet() {
 
     <h1>アクセストークンからユーザーID取得調査</h1>
 
-    <input type="button" value="liff.init()" onclick="liffInit()" class="buttonCss">
-    <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
     <input type="button" value="liff.getAccessToken()" onclick="AccessToken()" class="buttonCss">
     <input type="button" value="VerifyGet()" onclick="VerifyGet()" class="buttonCss">
-    <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
-
     
 
     <h2>出力内容</h2>
