@@ -40,10 +40,6 @@ function liffLogined() {
         .then(() => {
           if (liff.isLoggedIn()) {
             console.log("LOGIN SUCCESS");
-
-            var token = liff.getIDToken();
-            console.log("tokenID=" + token);
-
           } else {
             console.log("LOGIN ERROR");
           }
@@ -54,6 +50,14 @@ function liffLogined() {
         });
 
 }
+
+
+function IDToken() {
+  const idToken = liff.getIDToken();
+  console.log("tokenID=" + idToken);
+
+}
+
 </script>
 
  <body>
@@ -68,7 +72,7 @@ function liffLogined() {
 <input type="button" value="liff.login()" onclick="liffLogined()" style="width:200px; height:100px;">
 
 <br><br> 
-<input type="button" value="liff." onclick="liffLogined()" style="width:200px; height:100px;">
+<input type="button" value="liff.getIDToken()" onclick="IDToken()" style="width:200px; height:100px;">
  
  
   </body>
