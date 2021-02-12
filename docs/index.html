@@ -16,8 +16,6 @@ var myLiffId = '1634329436-nW9OzZE7';
 */
 function initializeLiff() {
 
-  if (liff.isLoggedIn() == false) {
- 
     liff.init({
             liffId: myLiffId
         })
@@ -32,11 +30,10 @@ function initializeLiff() {
             document.getElementById("liffAppContent").classList.add('hidden');
             document.getElementById("liffInitErrorMessage").classList.remove('hidden');
         });
-  }
 }
 
 function liffInit() {
-  initializeLiff('1634329436-nW9OzZE7');
+  initializeLiff();
 }
 
 function liffLogined() {
