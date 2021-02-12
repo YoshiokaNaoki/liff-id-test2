@@ -79,11 +79,17 @@ function Verify() {
     var postData = 'id_token=' + idToken + '&client_id=' + channelId;
     console.log( postData );
 
-
     $.post( 'https://api.line.me/oauth2/v2.1/verify', postData )
       .done(function(data, textStatus, jqXHR){
         console.log(textStatus);
-        divElm.innerHTML = data;
+        divElm.innerHTML = 
+          {
+            uid : data.sub,
+            name : data.name,
+            picture : data.picture
+          };
+        
+        data;
       }).fail(function(jqXHR, textStatus, errorThrown){
         console.log(textStatus);
         divElm.innerHTML = "エラーが発生しました。ステータス：" + jqXHR.status;
