@@ -121,7 +121,7 @@ function VerifyGet() {
           console.log('client_id=' + data.client_id);
           console.log('expires_in=' + data.expires_in);
 
-          if (data.client_id == channelId && expires_in > 0) {
+          if (data.client_id == channelId && data.expires_in > 0) {
 
             $.ajax( {
               type: 'get',
