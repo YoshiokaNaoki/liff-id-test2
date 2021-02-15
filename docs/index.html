@@ -152,14 +152,17 @@ function VerifyGet() {
 </script>
 
  <body>
-  
+
+  <input type="button" value="liff.init()" onclick="liffInit()" class="buttonCss">
+  <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
+  <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
+
+  <hr>
+
     <h1>ID TokenからユーザーID取得調査</h1>
 
-    <input type="button" value="liff.init()" onclick="liffInit()" class="buttonCss">
-    <input type="button" value="liff.login()" onclick="liffReLogin()" class="buttonCss">
     <input type="button" value="liff.getIDToken()" onclick="IDToken()" class="buttonCss">
     <input type="button" value="Verify()" onclick="VerifyPost()" class="buttonCss">
-    <input type="button" value="liff.Logout()" onclick="Logout()" class="buttonCss">
 
     <h2>出力内容</h2>
       
